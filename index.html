@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Giới thiệu - Nguyễn Văn An</title>
+    <style>
+      /* Reset và cài đặt cơ bản */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family:Verdana, Geneva, Tahoma, sans-serif;
+        line-height: 1.6;
+        color: #333;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+        padding: 20px;
+      }
+
+      /* Container chính */
+      .container {
+        max-width: 900px;
+        margin: 0 auto;
+        background: white;
+        border-radius: 20px;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+        overflow: hidden;
+      }
+
+      /* Header */
+      header {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        text-align: center;
+        padding: 40px 20px;
+      }
+
+      header h1 {
+        font-size: 2.5em;
+        margin-bottom: 10px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      }
+
+      header p {
+        font-size: 1.2em;
+        opacity: 0.9;
+      }
+
+      /* Ảnh đại diện */
+      .avatar-section {
+        text-align: center;
+        padding: 30px 20px;
+        background: #f8f9fa;
+      }
+
+      .avatar {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 5px solid #667eea;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s ease;
+      }
+
+      .avatar:hover {
+        transform: scale(1.05);
+      }
+
+      /* Section chung */
+      section {
+        padding: 30px;
+        border-bottom: 1px solid #e0e0e0;
+      }
+
+      section:last-child {
+        border-bottom: none;
+      }
+
+      section h2 {
+        color: #667eea;
+        font-size: 1.8em;
+        margin-bottom: 20px;
+        padding-bottom: 10px;
+        border-bottom: 3px solid #667eea;
+        display: inline-block;
+      }
+
+      /* Thông tin cá nhân */
+      .info-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        margin-top: 20px;
+      }
+
+      .info-item {
+        background: #f8f9fa;
+        padding: 15px;
+        border-radius: 10px;
+        border-left: 4px solid #667eea;
+      }
+
+      .info-item strong {
+        color: #764ba2;
+        display: block;
+        margin-bottom: 5px;
+      }
+
+      /* Giới thiệu bản thân */
+      .intro-text {
+        font-size: 1.1em;
+        line-height: 1.8;
+        color: #555;
+        text-align: justify;
+      }
+
+      /* Kỹ năng */
+      .skills-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+        margin-top: 20px;
+      }
+
+      .skill-item {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 10px 20px;
+        border-radius: 25px;
+        font-weight: 500;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        cursor: default;
+      }
+
+      .skill-item:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+      }
+
+      /* Sở thích */
+      .hobbies-list {
+        list-style: none;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 15px;
+        margin-top: 20px;
+      }
+
+      .hobbies-list li {
+        background: #f8f9fa;
+        padding: 15px;
+        border-radius: 10px;
+        border-left: 4px solid #764ba2;
+        transition: background 0.3s ease, transform 0.3s ease;
+      }
+
+      .hobbies-list li:hover {
+        background: #e9ecef;
+        transform: translateX(5px);
+      }
+
+      .hobbies-list li::before {
+        content: "★ ";
+        color: #764ba2;
+        font-weight: bold;
+        margin-right: 8px;
+      }
+
+      /* Thông tin liên hệ */
+      .contact-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+        margin-top: 20px;
+        justify-content: center;
+      }
+
+      .contact-link {
+        display: inline-block;
+        padding: 12px 25px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        text-decoration: none;
+        border-radius: 25px;
+        font-weight: 500;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .contact-link:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 5px 20px rgba(102, 126, 234, 0.5);
+      }
+
+      .contact-link.email {
+        background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+      }
+
+      .contact-link.facebook {
+        background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+      }
+
+      .contact-link.linkedin {
+        background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+      }
+
+      /* Footer */
+      footer {
+        background: #2c3e50;
+        color: white;
+        text-align: center;
+        padding: 20px;
+      }
+
+      footer p {
+        opacity: 0.8;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        header h1 {
+          font-size: 2em;
+        }
+
+        header p {
+          font-size: 1em;
+        }
+
+        .avatar {
+          width: 150px;
+          height: 150px;
+        }
+
+        section {
+          padding: 20px;
+        }
+
+        section h2 {
+          font-size: 1.5em;
+        }
+
+        .info-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .contact-links {
+          flex-direction: column;
+          align-items: stretch;
+        }
+
+        .contact-link {
+          text-align: center;
+        }
+      }
+
+      @media (max-width: 480px) {
+        body {
+          padding: 10px;
+        }
+
+        header h1 {
+          font-size: 1.5em;
+        }
+
+        .avatar {
+          width: 120px;
+          height: 120px;
+        }
+
+        section h2 {
+          font-size: 1.3em;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Container chính -->
+    <div class="container">
+      <!-- Header: Tiêu đề trang -->
+      <header>
+        <h1>Trần Nguyễn Quốc Việt</h1>
+        <p>Sinh viên Công nghệ Thông tin</p>
+      </header>
+
+      <!-- Ảnh đại diện -->
+      <div class="avatar-section">
+        <img
+          src="/session6/baitap6/quocViet.jpg"
+          alt="Ảnh đại diện Trần Nguyễn Quốc Việt"
+          class="avatar"
+        />
+      </div>
+
+      <!-- Thông tin cá nhân -->
+      <section>
+        <h2>Thông tin cá nhân</h2>
+        <div class="info-grid">
+          <div class="info-item">
+            <strong>Họ và tên:</strong>
+            Trần Nguyễn Quốc Việt
+          </div>
+          <div class="info-item">
+            <strong>Năm sinh:</strong>
+            2007
+          </div>
+          <div class="info-item">
+            <strong>Ngành học:</strong>
+            Công nghệ Thông tin
+          </div>
+          <div class="info-item">
+            <strong>Trường:</strong>
+            Học viện Công nghệ Bưu chính Viễn thông
+          </div>
+        </div>
+      </section>
+
+      <!-- Giới thiệu bản thân -->
+      <section>
+        <h2>Giới thiệu bản thân</h2>
+        <article>
+          <p class="intro-text">
+            Xin chào! Tôi là Trần Nguyễn Quốc Việt, một sinh viên năm Nhất
+            chuyên ngành Công nghệ Thông tin tại Học viện Công nghệ Bưu chính
+            Viễn thông. Tôi có niềm đam mê lớn với lập trình và công nghệ, luôn
+            tìm tòi và học hỏi những kiến thức mới. Với tinh thần ham học hỏi và
+            khả năng làm việc nhóm tốt, tôi mong muốn được đóng góp vào các dự
+            án công nghệ và phát triển bản thân trong lĩnh vực CNTT. Ngoài việc
+            học, tôi Thích chơi game nghe nhạc và kết nối với cộng đồng lập
+            trình viên.
+          </p>
+        </article>
+      </section>
+
+      <!-- Kỹ năng -->
+      <section>
+        <h2>Kỹ năng theo đuổi theo học</h2>
+        <div class="skills-list">
+          <div class="skill-item">HTML5 & CSS3</div>
+          <div class="skill-item">JavaScript</div>
+          <div class="skill-item">Python</div>
+          <div class="skill-item">Git & GitHub</div>
+          <div class="skill-item">SQL</div>
+          <div class="skill-item">Responsive Design</div>
+        </div>
+      </section>
+
+      <!-- Sở thích -->
+      <section>
+        <h2>Sở thích</h2>
+        <ul class="hobbies-list">
+          <li>Lập trình và phát triển phần mềm</li>
+          <li>Không muốn lười</li>
+          <li>Chơi thể thao (bóng đá, bơi lội)</li>
+          <li>Nghe nhạc và xem phim</li>
+          <li>Du lịch và khám phá</li>
+        </ul>
+      </section>
+
+      <!-- Thông tin liên hệ -->
+      <section>
+        <h2>Thông tin liên hệ</h2>
+        <div class="contact-links">
+          <a href="mailto:vietq984@gmail.com" class="contact-link email"
+            >📧 Email</a
+          >
+          <a
+            href="https://facebook.com/trannguyenquocviet"
+            class="contact-link facebook"
+            >📘 Facebook</a
+          >
+          <a
+            href="https://intasgram.com/in/trannguyenquocviet"
+            class="contact-link linkedin"
+            >💼 intasgram</a
+          >
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer>
+        <p>&copy; 2025 Trần Nguyễn Quốc Việt - Trang giới thiệu cá nhân</p>
+      </footer>
+    </div>
+  </body>
+</html>
